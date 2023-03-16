@@ -8,9 +8,9 @@ RUN apt update; apt install -y gnupg ca-certificates; \
     echo "deb https://download.mono-project.com/repo/ubuntu stable-focal/snapshots/6.8.0.123 main" | tee /etc/apt/sources.list.d/ mono-official-stable.list; \
     apt update; \
     DEBIAN_FRONTEND="noninteractive" apt -y install mono-complete zlib1g-dev;
-ADD packages-microsoft-prod.deb packages-microsoft-prod.deb
-RUN dpkg -i packages-microsoft-prod.deb
-RUN rm packages-microsoft-prod.deb
+#ADD packages-microsoft-prod.deb packages-microsoft-prod.deb
+#RUN dpkg -i packages-microsoft-prod.deb
+#RUN rm packages-microsoft-prod.deb
 RUN apt update; DEBIAN_FRONTEND="noninteractive" apt -y install dotnet-sdk-6.0
 RUN groupadd uo
 RUN useradd uo -g uo -m
