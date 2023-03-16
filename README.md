@@ -1,4 +1,2 @@
-before building run the following in the same dir as Dockerfile:
-`wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb`
-
-
+Note that if you plan to run this without the host network (by exposing ports) you will have to make changes to your serverlist.cs file per this comment:
+https://github.com/ServUO/ServUO/pull/4955#issuecomment-1472459053
