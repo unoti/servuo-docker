@@ -91,3 +91,5 @@ We see the error
 ```
 /usr/lib/dotnet/sdk/8.0.110/Microsoft.Common.CurrentVersion.targets(1241,5): error MSB3644: The reference assemblies for .NETFramework,Version=v4.8 were not found. To resolve this, install the Developer Pack (SDK/Targeting Pack) for this framework version or retarget your application. You can download .NET Framework Developer Packs at https://aka.ms/msbuild/developerpacks [/UO/Ultima/Ultima.csproj]
 ```
+
+This root of this problem is probably that I upgraded to .net 8, which no longer supports framework version 4.8.  I need to either downgrade to 6 and find a place to source that, or upgrade the RunUO sourve to use a later version of the .net framework.
