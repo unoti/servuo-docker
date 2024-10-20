@@ -65,10 +65,29 @@ dotnet
 ```
 When we execute that command we see usage information, so this isready to be used.
 
-## UO directory
+## External Volumes: /UO and /UOData directories
 Let's download ServUO and set up our program directory.
 
 Go to [ServUO releases](https://github.com/ServUO/ServUO/releases) and go into the latest there.  Copy that into directory `src/ServUO`.
 
+Now that we have the code there, let's mount it.
+
+The format of the podman `--volume` argument is `(local_dir):(container_dir)`.
+
+```bash
+# Run this from the top directory of this project.
+podman run --interactive --tty --volume WorldData:/UOData --volume src/ServUO:/UO uoserver bash
+```
+
+When I go in there and poke around, I can see that the `/UO` directory is mounted there as I expect.  I also created a file from inside the container at /UOData and verified it appeared on my local machine at /WorldData .
 
 
+## Build
+Now let's see if we can get the build to work.
+
+Use the `podman run` command from above, and do `dotnet build -c Release`
+
+We see the error
+```
+/usr/lib/dotnet/sdk/8.0.110/Microsoft.Common.CurrentVersion.targets(1241,5): error MSB3644: The reference assemblies for .NETFramework,Version=v4.8 were not found. To resolve this, install the Developer Pack (SDK/Targeting Pack) for this framework version or retarget your application. You can download .NET Framework Developer Packs at https://aka.ms/msbuild/developerpacks [/UO/Ultima/Ultima.csproj]
+```
