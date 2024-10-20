@@ -93,3 +93,10 @@ We see the error
 ```
 
 This root of this problem is probably that I upgraded to .net 8, which no longer supports framework version 4.8.  I need to either downgrade to 6 and find a place to source that, or upgrade the RunUO sourve to use a later version of the .net framework.
+
+See https://developer.fedoraproject.org/tech/languages/dotnet/dotnetcore.html
+
+https://stackoverflow.com/questions/74025051/hwo-to-install-net-6-on-linux-debian-11
+
+I created WorldData/tmp
+Then executed `wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb`
