@@ -19,3 +19,27 @@ This starts the machine running.
 
 * `podman machine ls` - shows all the machines running
 * `podman machine ssh` - ssh into the virtual machine
+* `podman machine start`
+* `podman machine stop`
+* `podman machine rm`
+
+
+### Build docker container
+1. `cd sys\container`
+2. `podman build .`
+
+Got error:
+```
+Package dotnet-sdk-6.0 is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+```
+
+Let's see what's up with that.
+* (Install .NET Runtime on Debian)[https://learn.microsoft.com/en-us/dotnet/core/install/linux-debian]
+    * This seems to indicate that dotnet-sdk-8.0 is available. Let's try that.
+
+
+* `podman build . -t uoserver`
+* `podman image ls`
+

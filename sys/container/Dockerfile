@@ -11,7 +11,7 @@ RUN apt update; apt install -y gnupg ca-certificates; \
 #ADD packages-microsoft-prod.deb packages-microsoft-prod.deb
 #RUN dpkg -i packages-microsoft-prod.deb
 #RUN rm packages-microsoft-prod.deb
-RUN apt update; DEBIAN_FRONTEND="noninteractive" apt -y install dotnet-sdk-6.0
+RUN apt update; DEBIAN_FRONTEND="noninteractive" apt -y install dotnet-sdk-8.0
 RUN groupadd uo
 RUN useradd uo -g uo -m
 WORKDIR /UO
